@@ -1,0 +1,22 @@
+﻿@model List<Drink>
+<div class="container">
+    <div class="row">
+        @foreach (Drink drink in Model)
+        {
+            <div class="col-3 dish_card" id="drink_@drink.Id">
+                <h2 class="up_h2">@drink.Name</h2>
+                <div class="dish_price">от @drink.Price руб.</div>
+                <div class="imgBox">
+                    <img src="@Url.Content($"~/img/Drink/{drink.ImageId}.png")" alt=@drink.ImageId srcset=""
+                        width="270" height="270">
+                </div>
+                <div class="content">
+                    <h2 class="down_h2">@drink.Name</h2>
+                    <button class="toBasket" onclick="addToBasketSingle(this)">
+                        <i class="fas fa-shopping-basket"></i>
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

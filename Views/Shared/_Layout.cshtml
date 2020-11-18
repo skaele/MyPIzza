@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="~/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="~/css/style.min.css">
+    <script src="https://kit.fontawesome.com/c919aeaf35.js" crossorigin="anonymous"></script>
+    <title>MyPizza</title>
+</head>
+
+<body onload="cartQuantity()">
+    <header>
+        <div class="container">
+            <div class="subheader">
+                <div class="row">
+                    <div class="col-3 logo">
+                        <img src="~/icons/Main Icon.png" alt="logo_img" class="logo_img" width="62" height="62">
+                        <div class="logo_text">My Pizza</div>
+                    </div>
+                    <a href="" class="offset-4 col-2 basket">
+                        <i class="fas fa-shopping-basket">
+                            <span id="quantity"></span>
+                        </i>
+                    </a>
+                    <div class="col-3 call">
+                        <a href="tel:84957970988" class="phone">8 999 999 99 99</a>
+                        <div class="call_us">Работаем круглосуточно!!!</div>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li class="menu_item"><a href="~/Dishes/Main" class="menu_link">Главная</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Акции</a></li>
+                    <li class="menu_item"><a href="~/Dishes/Combo" class="menu_link">Комбо</a></li>
+                    <li class="menu_item"><a href="~/Dishes/Pizza" class="menu_link">Пицца</a></li>
+                    <li class="menu_item"><a href="/Dishes/Drink" class="menu_link">Напитки</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Салаты</a></li>
+                    <li class="menu_item"><a href="#" class="menu_link">Детское</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main role="main" class="main">
+        @RenderBody()
+    </main>
+    <footer>
+        <div class="container">
+            <div class="delivery">
+                <div class="delivery_head">Доставка пиццы в Вашем городе</div>
+                <div class="delivery_desc">
+                    Доставка пиццы осуществляется из ресторанов, расположенных в
+                    разных частях вашего города. Каждый заказ формируется наиболее близко к месту доставки. Таким
+                    образом
+                    пицца по особенным рецептам, салаты и многое другое привозится максимально быстро.
+                </div>
+            </div>
+            <div class="footer_desc">
+                <div class="row">
+                    <div class="col-4 capabilitie">
+                        <div class="capabilitie_head">
+                            Работаем круглосуточно
+                        </div>
+                        <div class="capabilitie_desc">
+                            Среднее время доставки 1-1,5 часа, по возможности ранее. Время доставки может увеличиться в
+                            ситуации сильных пробок или другой неблагоприятной обстановки на дорогах.
+                        </div>
+                    </div>
+                    <div class="col-4 capabilitie">
+                        <div class="capabilitie_head">
+                            Адреса ресторанов
+                        </div>
+                        <div class="capabilitie_desc">
+                            <a href="">Г. Москва</a>
+                            <a href="">Г. Москва</a>
+                            <a href="">Г. Москва</a>
+                            <a href="">Г. Москва</a>
+                            <a href="">Г. Москва</a>
+                        </div>
+                    </div>
+                    <div class="col-4 capabilitie">
+                        <div class="capabilitie_head">
+                            Доставка бесплатно
+                        </div>
+                        <div class="capabilitie_desc">
+                            Минимальная сумма заказа 490 руб. Может быть увеличена, когда заказ сделан в отдаленные
+                            районы
+                            города.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="socials">
+                <a href="" class="vk">
+                    <i class="fab fa-vk"></i>
+                </a>
+                <a href="" class="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script> *@
+    <script src="~/js/script.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

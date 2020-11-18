@@ -1,0 +1,34 @@
+﻿@* @model List<Dish>
+<div class="container">
+    <div class="row">
+        <span></span>
+        @foreach (Dish dish in Model)
+        {
+            <div class="col-3 dish_card" id="@dish.GetType().ToString().Split(".").Last()_@dish.Id">
+                <h2 class="up_h2">@dish.Name</h2>
+                <div class="dish_price">от @dish.Price руб.</div>
+                <div class="imgBox">
+                    @{
+                        string dishImagePath = "";
+                        switch (dish.GetType().ToString().Split(".")[2])
+                        {
+                            case "Pizza":
+                                dishImagePath = Url.Content($"~/img/Pizza/{dish.ImageIndex}.png");
+                                break;
+                            case "Drink":
+                                dishImagePath = Url.Content($"~/img/Drink/{dish.ImageIndex}.png");
+                                break;
+                        }
+                     }
+                    <img src=@dishImagePath alt="@dish.Name" srcset="" width="270" height="270">
+                </div>
+                <div class="content">
+                    <h2 class="down_h2">@dish.Name</h2>
+                    <button class="toBasket" onclick="addToBasketSingle(this)">
+                        <i class="fas fa-shopping-basket"></i>
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</div> *@

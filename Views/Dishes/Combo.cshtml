@@ -1,0 +1,46 @@
+@model List<Combo>
+<div class="container">
+    @{
+        int ComboIndex = 0;
+    }
+    @foreach (Combo combo in Model)
+    {
+        <div class="row">
+            <div class="col-12 combo_dish">
+                <h2>@combo.Name</h2>
+                <div class="composition">
+                    @{
+                        foreach (Dish dish in ViewBag.DishesOfCompositions[ComboIndex])
+                        {
+                            if (dish is Pizza)
+                            {
+
+                                <div class="composition_dish" id="Pizza_@dish.Id">
+                                    <img src="@Url.Content($"~/img/Pizza/{dish.ImageId}.png")" alt="" width="250" height="250"
+                                        class="dish_img">
+                                    <div class="dish_name">@dish.Name</div>
+                                </div>
+                            }
+                            if (dish is Drink)
+                            {
+                                <div class="composition_dish" id="Drink_@dish.Id">
+                                    <img src="@Url.Content($"~/img/Drink/{dish.ImageId}.png")" alt="" width="250" height="250"
+                                        class="dish_img">
+                                    <div class="dish_name">@dish.Name</div>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+                <div class="order">
+                    <div class="Price">Цена: @combo.Price</div>
+                    <button class="toBasket" onclick="addToBasketSingle(this)">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span>Поместить в корзину</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        ComboIndex++;
+    }
+</div>
