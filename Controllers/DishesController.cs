@@ -46,7 +46,7 @@ namespace MyPizza.Controllers
         {
             List<Pizza> pizzas = await DishesDb.Pizzas.ToListAsync();
 
-            ViewBag.PizzasSizes = Dish.GetPricesOfDishes(pizzas.Cast<Dish>().ToList());
+            ViewBag.PizzasSizes = Dish.GetSizesOfDishes(pizzas.Cast<Dish>().ToList());
             ViewBag.PizzasPrices = Dish.GetPricesOfDishes(pizzas.Cast<Dish>().ToList());
 
             return View(pizzas);
@@ -68,7 +68,7 @@ namespace MyPizza.Controllers
             {
                 List<Dish> dishesOfThisComp = new List<Dish>();
 
-                //Add dishes as object, in db we have only type and index
+                //Add dishes of combo as object, in db we have only type and index
                 List<DishInfo> dishesInfo = JsonConvert.DeserializeObject<List<DishInfo>>(combo.DishesInComposition);
 
                 foreach (var dishInfo in dishesInfo)

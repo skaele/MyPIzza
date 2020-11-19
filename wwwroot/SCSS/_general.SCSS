@@ -25,9 +25,9 @@ header {
             }
         }
 
-        .basket{
+        .basket {
             display: block;
-            i{
+            i {
                 display: inline-block;
                 width: 56px;
                 height: 50px;
@@ -35,9 +35,9 @@ header {
                 margin-top: 13px;
                 font-size: 50px;
                 color: $main_yellow_color;
-                transition: 0.5s;   
+                transition: 0.5s;
 
-                #quantity{
+                #quantity {
                     display: inline;
                     position: absolute;
                     font-size: 19px;
@@ -46,8 +46,7 @@ header {
                     margin-top: -60px;
                     margin-left: -3px;
                 }
-ы
-                &:hover{
+                &:hover {
                     color: #ad9136;
                     // #quantity{
                     //     color: #ad9136;
@@ -185,6 +184,55 @@ header {
                 margin-top: 22px;
             }
         }
+
+        .content {
+            margin-top: 10px;
+            .size {
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                padding: 8px 20px;
+                transition: 0.5s;
+
+                .form_radio_btn {
+                    display: inline-block;
+                    width: 50px;
+                    height: 30px;
+                    margin: 0 5px;
+                    text-align: center;
+                    border-radius: 5px;
+                    background-color: #242426;
+                    color: $main_yellow_color;
+                    padding: 2px;
+                    transition: 1.2s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #242426;
+                        background-color: $main_yellow_color;
+                    }
+
+                    input[type="radio"] {
+                        display: none;
+                        &:checked + label {
+                            color: #242426;
+                            background-color: $main_yellow_color;
+                        }
+                    }
+                    label {
+                        display: inline-block;
+                        width: 100%;
+                        height: 100%;
+                        line-height: 26px;
+                        border-radius: 4px;
+                        font-size: 17px;
+                        cursor: pointer;
+                        user-select: none;
+                    }
+                }
+            }
+        }
+
         .toBasket {
             margin-top: 32px;
         }
@@ -276,63 +324,16 @@ header {
         .imgBox {
             transform: translate(-50%, -50%);
         }
-        .content {
-            margin-top: 10px;
-            .size {
-                // display: flex;
-                // justify-content: center;
-                // align-items: center;
-                padding: 8px 20px;
-                transition: 0.5s;
-
-                .form_radio_btn {
-                    display: inline-block;
-                    width: 50px;
-                    height: 30px;
-                    margin: 0 5px;                 
-                    text-align: center;
-                    border-radius: 5px;
-                    background-color: #242426;
-                    color: $main_yellow_color;
-                    padding: 2px;
-                    transition: 1.2s;
-                    cursor: pointer;
-
-                    &:hover {
-                        color: #242426;
-                        background-color: $main_yellow_color;
-                    }
-
-                    input[type="radio"] {
-                        display: none;
-                        &:checked + label{
-                            color: #242426;
-                            background-color: $main_yellow_color;
-                        }
-                    }
-                    label
-                    {
-                        display: inline-block;
-                        width: 100%;
-                        height: 100%;
-                        line-height: 26px;
-                        border-radius: 4px;
-                        font-size: 17px;
-                        cursor: pointer;
-                        user-select: none;
-                    }
-                }
-            }
-        }
         .toBasket {
             margin-top: 10px;
         }
     }
-    .drink_card {
-        .toBasket {
-            margin-top: 32px;
-        }
-    }
+    
+    // .drink_card {
+    //     .toBasket {
+    //         margin-top: 32px;
+    //     }
+    // }
 
     .combo_dish {
         z-index: 1;
@@ -371,7 +372,6 @@ header {
                 width: 250px;
                 height: 250px;
                 .dish {
-
                     &_name {
                         width: 100%;
                         height: 20px;

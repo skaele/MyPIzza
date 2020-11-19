@@ -5,7 +5,7 @@ function addToBasketSingle(element) {
         "Size": null
     };
     try{
-        if (DishInfo.Type == 'pizza') {
+        if (DishInfo.Type == 'Pizza' || DishInfo.Type == 'Drink') {
             var size = selectedSize(element.parentNode.parentNode);
             if (size != -1) {
                 DishInfo.Size = size;

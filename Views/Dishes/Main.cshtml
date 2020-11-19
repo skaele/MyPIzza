@@ -3,29 +3,43 @@
     <div class="row">
         @foreach (Dish dish in Model)
         {
-            if(dish is Pizza)
+            string idOfDish = dish.GetType().ToString().Split(".").Last() + "_" + dish.Id;
+
+            string cardClasses = "col-3 dish_card";
+
+            if (dish is Pizza)
             {
-                Pizza pizza = dish as Pizza;
-                <div class="col-3 dish_card pizza_card" id="pizza_@pizza.Id">
-                    <h2 class="up_h2">@pizza.Name</h2>
-                    <div class="dish_price">от @ViewBag.DishesPrices[pizza.Id][0] руб.</div>
+                cardClasses += " pizza_card";
+            }
+
+            if (dish is Drink)
+            {
+                cardClasses += " drink_card";
+            }
+
+            string dishImagePath = Url.Content("~/img/" +
+                $"{dish.GetType().ToString().Split(".").Last()}/" +
+                $"{dish.ImageId}.png");
+
+            if (ViewBag.DishesSizes[idOfDish].Count > 1)
+            {
+                <div class="@cardClasses" id="@idOfDish">
+                    <h2 class="up_h2">@dish.Name</h2>
+                    <div class="dish_price">от @ViewBag.DishesPrices[idOfDish][0] руб.</div>
                     <div class="imgBox">
-                        @{
-                            string dishImagePath = Url.Content($"~/img/Pizza/{pizza.ImageId}.png");
-                        }
-                        <img src=@dishImagePath alt="Кон Карне" srcset="" width="270" height="270">
+                        <img src=@dishImagePath alt="@dish.Name" srcset="" width="270" height="270">
                     </div>
                     <div class="content">
-                        <h2 class="down_h2">@pizza.Name</h2>
+                        <h2 class="down_h2">@dish.Name</h2>
                         <div class="size">
                             <form>
-                                @{ 
+                                @{
                                     int index = 0;
-                                    foreach (var size in ViewBag.DishesSizes[pizza.Id])
+                                    foreach (var size in ViewBag.DishesSizes[idOfDish])
                                     {
                                         <div class="form_radio_btn">
-                                            <input id="radio-@pizza.Id.ToString()@index" type="radio" name="size" value="@size">
-                                            <label for="radio-@pizza.Id.ToString()@index">@size</label>
+                                            <input id="radio-@idOfDish-@index" type="radio" name="size" value="@size">
+                                            <label for="radio-@idOfDish-@index">@size</label>
                                         </div>
                                         index++;
                                     }
@@ -40,28 +54,19 @@
             }
             else
             {
-                <div class="col-3 dish_card" id="@dish.GetType().ToString().Split(".").Last()_@dish.Id">
-                <h2 class="up_h2">@dish.Name</h2>
-                <div class="dish_price">от @dish.Id руб.</div>
-                <div class="imgBox">
-                    @{
-                        string dishImagePath = "";
-                        switch (dish.GetType().ToString().Split(".").Last())
-                        {
-                            case "Drink":
-                                dishImagePath = Url.Content($"~/img/Drink/{dish.ImageId}.png");
-                                break;
-                        }
-                     }
-                    <img src=@dishImagePath alt="@dish.Name" srcset="" width="270" height="270">
+                <div class="@cardClasses" id="@idOfDish">
+                    <h2 class="up_h2">@dish.Name</h2>
+                    <div class="dish_price">от @dish.Id руб.</div>
+                    <div class="imgBox">
+                        <img src=@dishImagePath alt="@dish.Name" srcset="" width="270" height="270">
+                    </div>
+                    <div class="content">
+                        <h2 class="down_h2">@dish.Name</h2>
+                        <button class="toBasket" onclick="addToBasketSingle(this)">
+                            <i class="fas fa-shopping-basket"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="content">
-                    <h2 class="down_h2">@dish.Name</h2>
-                    <button class="toBasket" onclick="addToBasketSingle(this)">
-                        <i class="fas fa-shopping-basket"></i>
-                    </button>
-                </div>
-            </div>
             }
         }
     </div>

@@ -3,9 +3,9 @@
     <div class="row">
         @foreach (Pizza pizza in Model)
         {
-            <div class="col-3 dish_card pizza_card" id="pizza_@pizza.Id">
+            <div class="col-3 dish_card pizza_card" id="Pizza_@pizza.Id">
                 <h2 class="up_h2">@pizza.Name</h2>
-                <div class="dish_price">от @ViewBag.PizzasPrices[pizza.Id][0] руб.</div>
+                <div class="dish_price">от @ViewBag.PizzasPrices["Pizza_" + pizza.Id][0] руб.</div>
                 <div class="imgBox">
                     @{
                         string dishImagePath = Url.Content($"~/img/Pizza/{pizza.ImageId}.png");
@@ -18,7 +18,7 @@
                         <form>
                             @{ 
                                 int index = 0;
-                                foreach (var size in ViewBag.PizzasSizes[pizza.Id])
+                                foreach (var size in ViewBag.PizzasSizes["Pizza_" + pizza.Id])
                                 {
                                     <div class="form_radio_btn">
                                         <input id="radio-@pizza.Id.ToString()@index" type="radio" name="size" value="@size">

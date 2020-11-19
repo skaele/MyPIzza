@@ -8,16 +8,16 @@ using Newtonsoft.Json;
 
 namespace MyPizza.Abstractions
 {
-    public abstract class Dish 
+    public abstract class Dish
     {
         public int Id { get; set; }
 
         public string Name { get; set; }
-        
+
         public int ImageId { get; set; }
 
         public double Raitng { get; set; }
-        
+
         public string Description { get; set; }
 
         /// <summary>
@@ -32,17 +32,19 @@ namespace MyPizza.Abstractions
 
         /// <summary>
         /// Dishes.Size is array of strings recorded as JSON
+        /// As key use Type_id. example: Pizza_1
         /// </summary>
-        /// <param name="controller"></param>
         /// <param name="dishes"></param>
-        /// <returns>Dictionary<id, sizes></returns>
-        public static Dictionary<int, List<string>> GetSizesOfDishes(List<Dish> dishes)
+        /// <returns>Dictionary<Type_id, sizes></returns>
+        public static Dictionary<string, List<string>> GetSizesOfDishes(List<Dish> dishes)
         {
-            Dictionary<int, List<string>> dishesSizes = new Dictionary<int, List<string>>();
+            Dictionary<string, List<string>> dishesSizes = new Dictionary<string, List<string>>();
 
             foreach (var dish in dishes)
             {
-                dishesSizes[dish.Id] = JsonConvert.DeserializeObject<List<string>>(dish.Size);
+                string typeOfDish = dish.GetType().ToString().Split('.').Last() + '_';
+
+                dishesSizes[typeOfDish + dish.Id] = JsonConvert.DeserializeObject<List<string>>(dish.Size);
             }
 
             return dishesSizes;
@@ -50,17 +52,20 @@ namespace MyPizza.Abstractions
 
         /// <summary>
         /// Dishes.Price is array of integers recorded as JSON
+        /// As key use Type_id. example: Pizza_1
         /// </summary>
-        /// <param name="controller"></param>
         /// <param name="dishes"></param>
-        /// <returns>Dictionary<id, prices></returns>
-        public static Dictionary<int, List<int>> GetPricesOfDishes(List<Dish> dishes)
+        /// <returns>Dictionary<Type_id, prices></returns>
+        public static Dictionary<string, List<int>> GetPricesOfDishes(List<Dish> dishes)
         {
-            Dictionary<int, List<int>> dishesPrices = new Dictionary<int, List<int>>();
+            Dictionary<string, List<int>> dishesPrices = new Dictionary<string, List<int>>();
+
 
             foreach (var dish in dishes)
             {
-                dishesPrices[dish.Id] = JsonConvert.DeserializeObject<List<int>>(dish.Price);
+                string typeOfDish = dish.GetType().ToString().Split('.').Last() + '_';
+
+                dishesPrices[typeOfDish + dish.Id] = JsonConvert.DeserializeObject<List<int>>(dish.Price);
             }
 
             return dishesPrices;
