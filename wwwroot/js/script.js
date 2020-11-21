@@ -1,7 +1,7 @@
 function addToBasketSingle(element) {
     var DishInfo = {
         "Type": element.parentNode.parentNode.id.split("_")[0],
-        "Index": element.parentNode.parentNode.id.split("_")[1],
+        "Id": element.parentNode.parentNode.id.split("_")[1],
         "Size": null
     };
     try{

@@ -30,7 +30,7 @@ namespace MyPizza.ContextFolder
 
         public DishesContext(DbContextOptions<DishesContext> options) : base(options)
         {
-            Database.EnsureCreated();   
+            //Database.EnsureCreated();   
         }
 
     }

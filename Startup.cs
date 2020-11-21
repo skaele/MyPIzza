@@ -27,11 +27,6 @@ namespace MyPizza
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSession(options =>
-            {
-                options.Cookie.Name = "1safjghajd";
-                options.Cookie.IsEssential = false;
-            });
 
             services.AddDbContext<DishesContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -42,7 +37,8 @@ namespace MyPizza
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseSession();
+
+
             app.UseRouting();
 
             app.UseAuthorization();

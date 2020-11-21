@@ -21,18 +21,24 @@ namespace MyPizza.Abstractions
         public string Description { get; set; }
 
         /// <summary>
-        /// JSON like {"S", "M"} 
+        /// string like "Water, apple, orange"
+        /// </summary>
+        public string Composition { get; set; }
+
+        /// <summary>
+        /// JSON like "['S', 'M']" or "[25, 30, 35]"
         /// </summary>
         public string Size { get; set; }
 
         /// <summary>
-        /// JSON like {"100", "200"} 
+        /// JSON like "[100, 200]" 
         /// </summary>
         public string Price { get; set; }
 
         /// <summary>
-        /// Dishes.Size is array of strings recorded as JSON
-        /// As key use Type_id. example: Pizza_1
+        /// Dishes.Size is array of strings
+        /// As key use Type_id 
+        /// example: Pizza_1
         /// </summary>
         /// <param name="dishes"></param>
         /// <returns>Dictionary<Type_id, sizes></returns>
@@ -51,8 +57,9 @@ namespace MyPizza.Abstractions
         }
 
         /// <summary>
-        /// Dishes.Price is array of integers recorded as JSON
-        /// As key use Type_id. example: Pizza_1
+        /// Dishes.Price is array of integers 
+        /// As key use Type_id 
+        /// example: Pizza_1
         /// </summary>
         /// <param name="dishes"></param>
         /// <returns>Dictionary<Type_id, prices></returns>

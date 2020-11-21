@@ -13,68 +13,67 @@
 </head>
 
 <body onload="cartQuantity()">
-    <header>
+    <header class="header">
         <div class="container">
-            <div class="subheader">
+            <div class="header_subheader">
                 <div class="row">
-                    <div class="col-3 logo">
-                        <img src="~/icons/Main Icon.png" alt="logo_img" class="logo_img" width="62" height="62">
-                        <div class="logo_text">My Pizza</div>
+                    <div class="col header_subheader_logo">
+                        <img src="~/icons/Main Icon.png" alt="logo_img" class="header_subheader_logo_img" width="62" height="62">
+                        <div class="header_subheader_logo_text">My Pizza</div>
                     </div>
-                    <a href="" class="offset-4 col-2 basket">
+                    <a href="" class="offset-4 col-2 col header_subheader_basket">
                         <i class="fas fa-shopping-basket">
                             <span id="quantity"></span>
                         </i>
                     </a>
-                    <div class="col-3 call">
-                        <a href="tel:84957970988" class="phone">8 999 999 99 99</a>
-                        <div class="call_us">Работаем круглосуточно!!!</div>
+                    <div class="col header_subheader_call">
+                        <a href="tel:84957970988" class="header_subheader_call_phone">8 999 999 99 99</a>
+                        <div class="header_subheader_call_us">Работаем круглосуточно!!!</div>
                     </div>
                 </div>
             </div>
-            <nav>
-                <ul class="menu">
-                    <li class="menu_item"><a href="~/Dishes/Main" class="menu_link">Главная</a></li>
-                    <li class="menu_item"><a href="#" class="menu_link">Акции</a></li>
-                    <li class="menu_item"><a href="~/Dishes/Combo" class="menu_link">Комбо</a></li>
-                    <li class="menu_item"><a href="~/Dishes/Pizza" class="menu_link">Пицца</a></li>
-                    <li class="menu_item"><a href="/Dishes/Drink" class="menu_link">Напитки</a></li>
-                    <li class="menu_item"><a href="#" class="menu_link">Салаты</a></li>
-                    <li class="menu_item"><a href="#" class="menu_link">Детское</a></li>
+            <nav class="header_nav">
+                <ul class="header_nav_menu">
+                    <li class="header_nav_menu_item"><a href="~/Dishes/Main" class="header_nav_menu_link">Главная</a></li>
+                    <li class="header_nav_menu_item"><a href="#" class="header_nav_menu_link">Акции</a></li>
+                    <li class="header_nav_menu_item"><a href="~/Dishes/Combo" class="header_nav_menu_link">Комбо</a></li>
+                    <li class="header_nav_menu_item"><a href="~/Dishes/Pizza" class="header_nav_menu_link">Пицца</a></li>
+                    <li class="header_nav_menu_item"><a href="~/Dishes/Drink" class="header_nav_menu_link">Напитки</a></li>
+                    <li class="header_nav_menu_item"><a href="#" class="header_nav_menu_link">Салаты</a></li>
+                    <li class="header_nav_menu_item"><a href="#" class="header_nav_menu_link">Детское</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main role="main" class="main">
-        @RenderBody()
+        @RenderBody();
     </main>
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="delivery">
-                <div class="delivery_head">Доставка пиццы в Вашем городе</div>
-                <div class="delivery_desc">
-                    Доставка пиццы осуществляется из ресторанов, расположенных в
-                    разных частях вашего города. Каждый заказ формируется наиболее близко к месту доставки. Таким
-                    образом
-                    пицца по особенным рецептам, салаты и многое другое привозится максимально быстро.
+            <div class="footer_delivery">
+                <div class="footer_delivery_head">Доставка пиццы в Вашем городе</div>
+                <div class="footer_delivery_desc">
+                    Доставка пиццы осуществляется из ресторанов, расположенных в разных частях вашего города. Каждый
+                    заказ формируется наиболее близко к месту доставки. Таким образом пицца по особенным рецептам,
+                    салаты и многое другое привозится максимально быстро.
                 </div>
             </div>
             <div class="footer_desc">
                 <div class="row">
-                    <div class="col-4 capabilitie">
-                        <div class="capabilitie_head">
+                    <div class="col-4 footer_desc_capabilitie">
+                        <div class="footer_desc_capabilitie_head">
                             Работаем круглосуточно
                         </div>
-                        <div class="capabilitie_desc">
+                        <div class="footer_desc_capabilitie_desc">
                             Среднее время доставки 1-1,5 часа, по возможности ранее. Время доставки может увеличиться в
                             ситуации сильных пробок или другой неблагоприятной обстановки на дорогах.
                         </div>
                     </div>
-                    <div class="col-4 capabilitie">
-                        <div class="capabilitie_head">
+                    <div class="col-4 footer_desc_capabilitie">
+                        <div class="footer_desc_capabilitie_head">
                             Адреса ресторанов
                         </div>
-                        <div class="capabilitie_desc">
+                        <div class="footer_desc_capabilitie_desc">
                             <a href="">Г. Москва</a>
                             <a href="">Г. Москва</a>
                             <a href="">Г. Москва</a>
@@ -82,34 +81,30 @@
                             <a href="">Г. Москва</a>
                         </div>
                     </div>
-                    <div class="col-4 capabilitie">
-                        <div class="capabilitie_head">
+                    <div class="col-4 footer_desc_capabilitie">
+                        <div class="footer_desc_capabilitie_head">
                             Доставка бесплатно
                         </div>
-                        <div class="capabilitie_desc">
+                        <div class="footer_desc_capabilitie_desc">
                             Минимальная сумма заказа 490 руб. Может быть увеличена, когда заказ сделан в отдаленные
-                            районы
-                            города.
+                            районы города.
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="socials">
+            <div class="footer_socials">
                 <a href="" class="vk">
                     <i class="fab fa-vk"></i>
                 </a>
-                <a href="" class="instagram">
+                <a href="" class="footer_instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    @* <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script> *@
     <script src="~/js/script.js"></script>
 
-    @RenderSection("Scripts", required: false)
 </body>
 
 </html>

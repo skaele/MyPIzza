@@ -14432,6 +14432,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\skael\\source\\repos\\MyPizza\\MyPizza\\Views\\Dishes\\ConcreteDish.cshtml",
+      "TargetPath": "Views\\Dishes\\ConcreteDish.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\skael\\source\\repos\\MyPizza\\MyPizza\\Views\\Dishes\\Pizza.cshtml",
       "TargetPath": "Views\\Dishes\\Pizza.cshtml",
       "FileKind": "mvc"

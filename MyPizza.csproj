@@ -5,7 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20201120183602_AddConcretePages.cs" />
+    <Compile Remove="Migrations\20201120183602_AddConcretePages.Designer.cs" />
+    <Compile Remove="Migrations\20201120184748_AddConcretePages.cs" />
+    <Compile Remove="Migrations\20201120184748_AddConcretePages.Designer.cs" />
+    <Compile Remove="Migrations\20201120191818_AddConcretePages.cs" />
+    <Compile Remove="Migrations\20201120191818_AddConcretePages.Designer.cs" />
+    <Compile Remove="Migrations\20201120193057_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201120193057_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201120193803_AddConcretePages.cs" />
+    <Compile Remove="Migrations\20201120193803_AddConcretePages.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Attributes\" />
+    <Folder Include="Migrations\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>

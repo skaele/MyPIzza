@@ -1,0 +1,52 @@
+@model Dish
+@{
+    string modelType = Model.GetType().ToString().Split(".").Last();
+    string dishImagePath = Url.Content("~/img/{modelType}/{Model.ImageId}.png");
+}
+<div class="container">
+    <div class="concrete_dish" >
+        <div class="row">
+            <div class="col-5 img_box">
+                <img src="@dishImagePath" alt="@modelType" class="img_box_main_img">
+            </div>
+            <div class="col-7 main_content">
+                <div class="desc">
+                    <h2 class="desc_head">@Model.Name</h2>
+                    <div class="desc_main">@Model.Description</div>
+                </div>
+                <div class="dish_info">
+                    <h3 class="dish_info_head">Состав:</h3>
+                    <div class="dish_info_content">@Model.Composition</div>
+                </div>
+                @if(modelType == "Pizza")
+                {
+                <div class="dish_info">
+                    <h3 class="dish_info_head">Энергетическая ценность на 100 гр:</h3>
+                    <div class="dish_info_content">@Model.Id*10</div>
+                </div>
+                }
+                <div class="order">
+                    <h2 class="order_head">Выберите размер: </h2>
+                    <div class="choose_size">
+                        <form class="form_radio">
+                            @{ 
+                                int index = 0;
+                                foreach (var size in ViewBag.DishSizes)
+                                {
+                                    <div class="form_radio_btn">
+                                        <input id="radio-@Model.Id.ToString()@index" type="radio" name="size" value="@size">
+                                        <label for="radio-@Model.Id.ToString()@index">@size</label>
+                                    </div>
+                                    index++;
+                                }
+                              }
+                        </form>
+                        <button class="to_basket_btn" onclick="">
+                            <i class="fas fa-shopping-basket"></i>
+                        </button>
+                    </div>  
+                </div>              
+            </div>
+        </div>
+    </div>
+</div>

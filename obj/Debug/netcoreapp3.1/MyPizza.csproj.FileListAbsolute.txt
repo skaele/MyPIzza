@@ -77,3 +77,4 @@ C:\Users\skael\source\repos\MyPizza\MyPizza\obj\Debug\netcoreapp3.1\MyPizza.MvcA
 C:\Users\skael\source\repos\MyPizza\MyPizza\obj\Debug\netcoreapp3.1\Razor\Views\Dishes\Main.cshtml.g.cs
 C:\Users\skael\source\repos\MyPizza\MyPizza\obj\Debug\netcoreapp3.1\Razor\Views\Dishes\Combo.cshtml.g.cs
 C:\Users\skael\source\repos\MyPizza\MyPizza\obj\Debug\netcoreapp3.1\Razor\Views\Old Versions\oldMain.cshtml.g.cs
+C:\Users\skael\source\repos\MyPizza\MyPizza\obj\Debug\netcoreapp3.1\Razor\Views\Dishes\ConcreteDish.cshtml.g.cs

@@ -17,13 +17,6 @@ namespace MyPizza.Controllers
 {
     public class DishesController : Controller
     {
-        //private readonly ILogger<DishesController> logger;
-
-        // public DishesController(ILogger<DishesController> logger)
-        // {
-        //    _logger = logger;
-        // }    
-
         private DishesContext DishesDb { get; }
 
 
@@ -32,6 +25,7 @@ namespace MyPizza.Controllers
             this.DishesDb = DishesDb;
         }
 
+        [HttpGet]
         public IActionResult Main()
         {
             List<Dish> dishes = DishesDb.Dishes;
@@ -42,6 +36,31 @@ namespace MyPizza.Controllers
             return View(dishes);
         }
 
+        [HttpGet("[controller]/{dishType:maxlength(10)}/{dishId:int}")]
+        public async Task<IActionResult> ConcreteDish(string dishType, int dishId)
+        {
+            Dish selectedDish = null;
+            switch (dishType.ToLower())
+            {
+                case "pizza":
+                    selectedDish = await DishesDb.Pizzas.FirstOrDefaultAsync(p => p.Id == dishId);
+                    break;
+
+                case "drink":
+                    selectedDish = await DishesDb.Drinks.FirstOrDefaultAsync(p => p.Id == dishId);
+                    break;   
+            }
+
+            if(selectedDish != null){
+                ViewBag.DishSizes = JsonConvert.DeserializeObject<List<string>>(selectedDish.Size);
+                ViewBag.DishPrices = JsonConvert.DeserializeObject<List<int>>(selectedDish.Price);
+                return View(selectedDish);
+            }
+
+            return NotFound();
+        }
+
+        [HttpGet("[controller]/[action]")]
         public async Task<IActionResult> Pizza()
         {
             List<Pizza> pizzas = await DishesDb.Pizzas.ToListAsync();
@@ -52,13 +71,14 @@ namespace MyPizza.Controllers
             return View(pizzas);
         }
 
-
+        [HttpGet("[controller]/[action]")]
         public async Task<IActionResult> Drink()
         {
             List<Drink> drinks = await DishesDb.Drinks.ToListAsync();
             return View(drinks);
         }
 
+        [HttpGet("[controller]/[action]")]
         public async Task<IActionResult> Combo()
         {
             List<Combo> combos = await DishesDb.Combos.ToListAsync();
@@ -76,13 +96,13 @@ namespace MyPizza.Controllers
                     switch (dishInfo.Type)
                     {
                         case ("Pizza"):
-                            dishesOfThisComp.Add(DishesDb.Pizzas
-                                                 .FirstOrDefault(p => p.Id.ToString() == dishInfo.Index));
+                            dishesOfThisComp.Add(await DishesDb.Pizzas
+                                            .FirstOrDefaultAsync(p => p.Id.ToString() == dishInfo.Id));
                             break;
 
                         case ("Drink"):
-                            dishesOfThisComp.Add(DishesDb.Drinks
-                                                 .FirstOrDefault(p => p.Id.ToString() == dishInfo.Index));
+                            dishesOfThisComp.Add(await DishesDb.Drinks
+                                            .FirstOrDefaultAsync(p => p.Id.ToString() == dishInfo.Id));
                             break;
                     }
                 }
